@@ -15,16 +15,16 @@
     <!-- hastaqui -->
 
     <!-- Relacion de la interfaz con el modeloy la interfaz del repositorio con la el repositorio -->
-    <preference for="Hiberus\Curso\Api\Data\CursoInterface" type="Hiberus\Curso\Model\Curso"/>
-    <preference for="Hiberus\Curso\Api\CursoRepositoryInterface" type="Hiberus\Curso\Model\CursoRepository"/>
+    <preference for="Hiberus\Rebordinos\Api\Data\ExamInterface" type="Hiberus\Rebordinos\Model\Exam"/>
+    <preference for="Hiberus\Rebordinos\Api\ExamRepositoryInterface" type="Hiberus\Rebordinos\Model\ExamRepository"/>
 
     <!--Indica la tabla y la columna id con la que estamos trabajando-->
     <type name="Magento\Framework\EntityManager\MetadataPool">
         <arguments>
             <argument name="metadata" xsi:type="array">
-                <item name="Hiberus\Curso\Api\Data\CursoInterface" xsi:type="array">
-                    <item name="entityTableName" xsi:type="const">Hiberus\Curso\Api\Data\CursoInterface::TABLE_NAME</item>
-                    <item name="identifierField" xsi:type="const">Hiberus\Curso\Api\Data\CursoInterface::COLUMN_ID</item>
+                <item name="Hiberus\Rebordinos\Api\Data\ExamInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Hiberus\Rebordinos\Api\Data\ExamInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Hiberus\Rebordinos\Api\Data\ExamInterface::COLUMN_ID</item>
                 </item>
             </argument>
         </arguments>

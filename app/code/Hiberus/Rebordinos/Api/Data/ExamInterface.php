@@ -22,13 +22,13 @@ interface ExamInterface extends \Magento\Framework\Api\ExtensibleDataInterface
     /**
      * @return string
      */
-    public function getFistname();
+    public function getFirstname();
 
     /**
      * @param string $firstname
      * @return $this
      */
-    public function setFistname($firstname);
+    public function setFirstname($firstname);
 
     /**
      * @return string
@@ -42,12 +42,12 @@ interface ExamInterface extends \Magento\Framework\Api\ExtensibleDataInterface
     public function setLastname($lastname);
 
     /**
-     * @return decimal
+     * @return double
      */
     public function getMark();
 
     /**
-     * @param decimal $mark
+     * @param double $mark
      * @return $this
      */
     public function setMark($mark);

@@ -2,28 +2,27 @@
 
 namespace Hiberus\Rebordinos\Model;
 
+use Hiberus\Rebordinos\Api\Data\ExamInterfaceFactory;
 use Hiberus\Rebordinos\Api\ExamRepositoryInterface;
 use Hiberus\Rebordinos\Api\Data\ExamInterface;
-use Hiberus\Rebordinos\Api\Data\ExamInterfaceFactory;
 use Magento\Framework\Exception\CouldNotSaveException;
 
 class ExamRepository implements ExamRepositoryInterface
 {
 
     protected ResourceModel\Exam $resourceExam;
-    protected ExamInterfaceFactory $examInterfaceFactory;
+    protected \Hiberus\Rebordinos\Api\Data\ExamInterfaceFactory $ExamInterfaceFactory;
 
     /**
      * @param ResourceModel\Exam $resourceExam
-     * @param ExamInterfaceFactory $examInterfaceFactory
+     * @param ExamInterfaceFactory $ExamInterfaceFactory
      */
     public function __construct(
         \Hiberus\Rebordinos\Model\ResourceModel\Exam $resourceExam,
-        ExamInterfaceFactory                    $examInterfaceFactory
-    )
-    {
+        ExamInterfaceFactory $ExamInterfaceFactory
+    ) {
         $this->resourceExam = $resourceExam;
-        $this->ExamInterfaceFactory = $examInterfaceFactory;
+        $this->ExamInterfaceFactory = $ExamInterfaceFactory;
     }
 
     /**
@@ -33,17 +32,14 @@ class ExamRepository implements ExamRepositoryInterface
      */
     public function save(
         ExamInterface $exam
-    )
-    {
+    ) {
 
         try {
             $this->resourceExam->save($exam);
-        } catch (\Exception $e) {
+        } catch(\Exception $e) {
             throw new CouldNotSaveException(__($e->getMessage()));
         }
-
         return $exam;
-
     }
 
     /**
@@ -72,10 +68,8 @@ class ExamRepository implements ExamRepositoryInterface
         try {
             $this->resourceExam->delete($exam);
         } catch (\Exception $e) {
-
             return false;
         }
-
         return true;
     }
 

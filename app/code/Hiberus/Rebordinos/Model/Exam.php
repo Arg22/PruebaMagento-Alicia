@@ -2,7 +2,6 @@
 
 namespace Hiberus\Rebordinos\Model;
 
-use Hiberus\Rebordinos\Api\Data\decimal;
 use Hiberus\Rebordinos\Api\Data\ExamInterface;
 use Magento\Framework\Model\AbstractModel;
 
@@ -33,7 +32,7 @@ class Exam extends AbstractModel implements ExamInterface
     /**
      * @inheriDoc
      */
-    public function getFistname()
+    public function getFirstname()
     {
         return $this->getData('firstname');
     }
@@ -41,7 +40,7 @@ class Exam extends AbstractModel implements ExamInterface
     /**
      * @inheriDoc
      */
-    public function setFistname($firstname)
+    public function setFirstname($firstname)
     {
         return $this->setData('firstname',$firstname);
     }

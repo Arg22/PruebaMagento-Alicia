@@ -2,42 +2,38 @@
 
 namespace Hiberus\Rebordinos\Controller\Index;
 
+use Hiberus\Rebordinos\Api\ExamRepositoryInterface;
+use Hiberus\Rebordinos\Api\Data\ExamInterfaceFactory;
 use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\App\ResponseInterface;
+use Hiberus\Rebordinos\Model\ResourceModel\exam;
 
-/**
- * Class Index
- */
 class Index implements HttpGetActionInterface
 {
 
     protected \Magento\Framework\View\Result\PageFactory $pageFactory;
-    protected \Hiberus\Rebordinos\Model\ExamFactory $examFactory;
+    protected ExamRepositoryInterface $examRepository;
+    protected ExamInterfaceFactory $examInterfaceFactory;
+    protected exam $examResource;
 
     public function __construct(
-        \Magento\Framework\App\Action\Context      $context,
+        \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $pageFactory,
-        \Hiberus\Rebordinos\Model\ExamFactory $examFactory
-    )
-    {
+        ExamRepositoryInterface $examRepository,
+        ExamInterfaceFactory $examInterfaceFactory,
+        Exam $examResource
+
+    ) {
         $this->pageFactory = $pageFactory;
-        $this->ExamFactory = $examFactory;
-
-
+        $this->examRepository = $examRepository;
+        $this->examInterfaceFactory = $examInterfaceFactory;
+        $this->examResource = $examResource;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function execute()
     {
-
-        $exam = $this->ExamFactory->create();
-        $collection=$exam->getCollection();
-
-        foreach($collection as $item){
-            echo $item->getData();
-        }
-
         return $this->pageFactory->create();
     }
+
+
 }

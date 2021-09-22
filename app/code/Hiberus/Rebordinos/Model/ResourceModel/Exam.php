@@ -3,35 +3,48 @@
 namespace Hiberus\Rebordinos\Model\ResourceModel;
 
 use Hiberus\Rebordinos\Api\Data\ExamInterface;
+use Magento\Framework\EntityManager\EntityManager;
+use Magento\Framework\EntityManager\MetadataPool;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
+use Magento\Framework\Model\ResourceModel\Db\Context;
 
-class Exam extends AbstractDb{
+class Exam extends AbstractDb
+{
 
     /**
-     * @param \Magento\Framework\Model\ResourceModel\Db\Context $context
-     * @param \Magento\Framework\EntityManager\MetadataPool $metadataPool
-     * @param \Magento\Framework\EntityManager\EntityManager $entityManager
+     * @var MetadataPool
+     */
+    private MetadataPool $metadataPool;
+    /**
+     * @var EntityManager
+     */
+    private EntityManager $entityManager;
+
+    /**
+     * @param Context $context
+     * @param MetadataPool $metadataPool
+     * @param EntityManager $entityManager
      * @param null $connectionName
      */
     public function __construct(
-        \Magento\Framework\Model\ResourceModel\Db\Context $context,
-        \Magento\Framework\EntityManager\MetadataPool $metadataPool,
-        \Magento\Framework\EntityManager\EntityManager $entityManager,
+        Context $context,
+        MetadataPool $metadataPool,
+        EntityManager $entityManager,
         $connectionName = null
     ) {
-        $this->metadataPool =$metadataPool;
-        $this->entityManager =$entityManager;
-        parent::__construct($context,$connectionName);
+        $this->metadataPool = $metadataPool;
+        $this->entityManager = $entityManager;
+
+        parent::__construct($context, $connectionName);
     }
 
-
     /**
-     * @inerhitDoc
+     * @inheritdoc
      */
     protected function _construct()
     {
-        $this->_inir(ExamInterface::TABLE_NAME,ExamInterface::COLUMN_ID);
+        $this->_init(ExamInterface::TABLE_NAME, ExamInterface::COLUMN_ID);
     }
 
     /**
@@ -39,11 +52,10 @@ class Exam extends AbstractDb{
      * @return $this|AbstractDb
      * @throws \Exception
      */
-    public function save(AbstractModel $object)
-    {
+    public function save(AbstractModel $object) {
         $this->entityManager->save($object);
-        return $this;
 
+        return $this;
     }
 
     /**
@@ -52,9 +64,8 @@ class Exam extends AbstractDb{
      * @param null $field
      * @return AbstractDb|mixed
      */
-    public function load(AbstractModel $object, $value, $field = null)
-    {
-        return  $this->entityManager->load($object, $value);
+    public function load(AbstractModel $object, $value, $field = null) {
+        return $this->entityManager->load($object, $value);
     }
 
     /**
@@ -62,9 +73,8 @@ class Exam extends AbstractDb{
      * @return AbstractDb|void
      * @throws \Exception
      */
-    public function delete(AbstractModel $object)
-    {
+    public function delete(AbstractModel $object) {
         $this->entityManager->delete($object);
-
     }
+
 }
