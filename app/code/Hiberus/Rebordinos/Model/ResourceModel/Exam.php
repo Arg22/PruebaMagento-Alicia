@@ -1,13 +1,12 @@
 <?php
 
-namespace Hiberus\Curso\Model\ResourceModel;
+namespace Hiberus\Rebordinos\Model\ResourceModel;
 
-use Hiberus\Curso\Api\Data\CursoInterface;
+use Hiberus\Rebordinos\Api\Data\ExamInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-class Curso extends AbstractDb{
-
+class Exam extends AbstractDb{
 
     /**
      * @param \Magento\Framework\Model\ResourceModel\Db\Context $context
@@ -32,7 +31,7 @@ class Curso extends AbstractDb{
      */
     protected function _construct()
     {
-        $this->_inir(CursoInterface::TABLE_NAME,CursoInterface::COLUMN_ID);
+        $this->_inir(ExamInterface::TABLE_NAME,ExamInterface::COLUMN_ID);
     }
 
     /**
