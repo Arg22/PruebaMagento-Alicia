@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<system>
+        <tab id="rebordinos" sortOrder="999" translate="label">
+          <label>Rebordinos</label>
+        </tab>
+        <section id="rebordinos_nombre" showInDefault="1"  showInStore="1" showInWebsite="1" sortOrder="10">
+            <label>Opciones</label>
+            <tab>rebordinos</tab>
+            <resource>Hiberus_Rebordinos::config</resource>
+            <group id="general" showInDefault="1" sortOrder="10">
+                <label>General</label>
+                <field id="texto_general" type="text" sortOrder="10" showInDefault="1">
+                    <label>Texto descripcion</label>
+                </field>
+                <field id="numero_general" type="text" sortOrder="10" showInDefault="1">
+
+                    <label>Numero descripcion</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

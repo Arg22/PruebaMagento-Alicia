@@ -1,0 +1,14 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="product_description_plugin" type="Hiberus\Rebordinos\Plugin\Catalog\ProductPlugin" sortOrder="10"  />
+    </type>
+
+    <type name="Magento\Theme\Model\View\Design">
+        <arguments>
+            <argument name="themes" xsi:type="array">
+                <item name="adminhtml" xsi:type="string">Rebordinos/alicia_admin</item> <!-- Example: "Magento/backend" -->
+            </argument>
+        </arguments>
+    </type>
+</config>
+

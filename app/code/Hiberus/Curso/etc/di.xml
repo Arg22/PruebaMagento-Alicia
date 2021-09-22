@@ -1,0 +1,47 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="product_plugin" type="Hiberus\Curso\Plugin\Catalog\ProductPlugin" sortOrder="10"  />
+    </type>
+    <type name="Magento\Framework\Pricing\Render\Amount">
+        <plugin name="pricing_plugin" type="Hiberus\Curso\Plugin\Pricing\PricingPlugin" sortOrder="10"  />
+    </type>
+
+<!--Comando de autores-->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="comando_autor" xsi:type="object">Hiberus\Curso\Console\AuthorsCommand</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Admin theme. Start -->
+    <type name="Magento\Theme\Model\View\Design">
+        <arguments>
+            <argument name="themes" xsi:type="array">
+                <item name="adminhtml" xsi:type="string">Curso/alicia_admin</item> <!-- Example: "Magento/backend" -->
+            </argument>
+        </arguments>
+    </type>
+    <!-- Admin theme. End -->
+
+    <!-- CRUD RElacionar interface con modelo y la repositoriinterzaz con -->
+    <preference for="Hiberus\Curso\Api\Data\CursoInterface" type="Hiberus\Curso\Model\Curso"/>
+    <preference for="Hiberus\Curso\Api\CursoRepositoryInterface" type="Hiberus\Curso\Model\CursoRepository"/>
+
+
+    <!-- En d relacional-->
+
+    <!--indica la tabla y la columna id con la que estamos trabajando-->
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Hiberus\Curso\Api\Data\CursoInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Hiberus\Curso\Api\Data\CursoInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Hiberus\Curso\Api\Data\CursoInterface::COLUMN_ID</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <!--End indicacion-->
+
+</config>
