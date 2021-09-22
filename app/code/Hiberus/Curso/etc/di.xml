@@ -24,14 +24,11 @@
     </type>
     <!-- Admin theme. End -->
 
-    <!-- CRUD RElacionar interface con modelo y la repositoriinterzaz con -->
+    <!-- Relacin de la interfaz con el modeloy la interfaz del repositorio con la el repositorio -->
     <preference for="Hiberus\Curso\Api\Data\CursoInterface" type="Hiberus\Curso\Model\Curso"/>
     <preference for="Hiberus\Curso\Api\CursoRepositoryInterface" type="Hiberus\Curso\Model\CursoRepository"/>
 
-
-    <!-- En d relacional-->
-
-    <!--indica la tabla y la columna id con la que estamos trabajando-->
+    <!--Indica la tabla y la columna id con la que estamos trabajando-->
     <type name="Magento\Framework\EntityManager\MetadataPool">
         <arguments>
             <argument name="metadata" xsi:type="array">

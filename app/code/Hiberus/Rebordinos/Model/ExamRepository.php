@@ -64,10 +64,10 @@ class ExamRepository implements ExamRepositoryInterface
     }
 
     /**
-     * @param \Hiberus\Rebordinos\Api\Data\ExamInterface $exam
+     * @param ExamInterface $exam
      * @return bool
      */
-    public function delete(\Hiberus\Rebordinos\Api\Data\ExamInterface $exam)
+    public function delete(ExamInterface $exam)
     {
         try {
             $this->resourceExam->delete($exam);

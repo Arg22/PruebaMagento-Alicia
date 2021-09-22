@@ -1,4 +1,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <!-- TODO borrar -->
     <type name="Magento\Catalog\Model\Product">
         <plugin name="product_description_plugin" type="Hiberus\Rebordinos\Plugin\Catalog\ProductPlugin" sortOrder="10"  />
     </type>
@@ -7,6 +9,23 @@
         <arguments>
             <argument name="themes" xsi:type="array">
                 <item name="adminhtml" xsi:type="string">Rebordinos/alicia_admin</item> <!-- Example: "Magento/backend" -->
+            </argument>
+        </arguments>
+    </type>
+    <!-- hastaqui -->
+
+    <!-- Relacion de la interfaz con el modeloy la interfaz del repositorio con la el repositorio -->
+    <preference for="Hiberus\Curso\Api\Data\CursoInterface" type="Hiberus\Curso\Model\Curso"/>
+    <preference for="Hiberus\Curso\Api\CursoRepositoryInterface" type="Hiberus\Curso\Model\CursoRepository"/>
+
+    <!--Indica la tabla y la columna id con la que estamos trabajando-->
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Hiberus\Curso\Api\Data\CursoInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Hiberus\Curso\Api\Data\CursoInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Hiberus\Curso\Api\Data\CursoInterface::COLUMN_ID</item>
+                </item>
             </argument>
         </arguments>
     </type>
