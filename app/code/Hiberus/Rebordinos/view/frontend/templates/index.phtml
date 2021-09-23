@@ -1,20 +1,25 @@
 <?php
 
 /**
- * @var \Hiberus\Rebordinos\Block\Index $block
+ * @var Index $block
  */
+
+use Hiberus\Rebordinos\Block\Index;
+
 $exams = $block->getExams();
-var_dump($exams);die();
+
 ?>
 
 <h2 class="title">Exams</h2>
 <?php foreach ($exams as $item) {?>
     <ul>
-        <li>Name: <?= $item->getFirstname() ?></li>
-        <li>Lastname: <?= $item->getLastname() ?></li>
+        <li>First name: <?= $item->getFirstname() ?></li>
+        <li>Last name: <?= $item->getLastname() ?></li>
         <li>Mark: <?= $item->getMark() ?></li>
     </ul>
 <?php } ?>
-<p>Total number of students:.</p>
+
+<p><?= __('Total number of %1 students', [sizeof($exams)]) ?></p>
+
 
 
