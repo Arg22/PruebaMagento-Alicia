@@ -20,6 +20,6 @@ $exams = $block->getExams();
 <?php } ?>
 
 <p><?= __('Total number of %1 students', [sizeof($exams)]) ?></p>
-
+<p><?= __('The average mark: %1', [$block->getAverageMark()]) ?></p>
 
 

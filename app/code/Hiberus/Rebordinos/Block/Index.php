@@ -51,4 +51,13 @@ class Index extends \Magento\Framework\View\Element\Template
         return $resultPage->getCollection();
     }
 
+
+    public function getAverageMark(){
+        $exams = $this->getExams();
+        $marks=[];
+        foreach ($exams as $item){
+            $marks[]=$item->getMark();
+        }
+        return array_sum($marks)/count($exams);
+    }
 }
