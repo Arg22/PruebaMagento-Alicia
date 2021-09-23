@@ -15,5 +15,11 @@
             </argument>
         </arguments>
     </type>
+
+    <!--Necesario para el Plugin-->
+    <type name="Hiberus\Rebordinos\Model\Exam">
+        <plugin name="exam_plugin" type="Hiberus\Rebordinos\Plugin\Exams\MarkPlugin" sortOrder="10"  />
+    </type>
+
 </config>
 
