@@ -21,5 +21,14 @@
         <plugin name="exam_plugin" type="Hiberus\Rebordinos\Plugin\Exams\MarkPlugin" sortOrder="10"  />
     </type>
 
+    <!--Necesario para el comando-->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="comand_rebordinos" xsi:type="object">Hiberus\Rebordinos\Console\ExamsCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
 </config>
 

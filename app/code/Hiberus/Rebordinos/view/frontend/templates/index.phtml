@@ -15,7 +15,15 @@ $exams = $block->getExams();
     <ul>
         <li>First name: <?= $item->getFirstname() ?></li>
         <li>Last name: <?= $item->getLastname() ?></li>
-        <li>Mark: <?= $item->getMark() ?></li>
+
+        <?php if($item->getMark() < 5){
+            $class="exam-fail";
+        }else{
+            $class="exam-pass";
+        } ?>
+        <li class="<?=$class?>">Mark: <?=$item->getMark()?></li>
+
+
     </ul>
 <?php } ?>
 
