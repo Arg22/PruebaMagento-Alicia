@@ -42,7 +42,7 @@ class ExamsCommand extends Command
         parent::configure();
     }
 
-      /**
+    /**
      * @param InputInterface $input
      * @param OutputInterface $output
      * @return int|void
