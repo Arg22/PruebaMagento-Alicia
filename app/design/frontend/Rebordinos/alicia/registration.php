@@ -7,3 +7,4 @@
 use \Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(ComponentRegistrar::THEME, 'frontend/Rebordinos/alicia', __DIR__);
+

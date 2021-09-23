@@ -1,20 +1,18 @@
-
 & when (@media-common = true) {
-    //Clase sacada de magento/theme-frontend-blank/Magento_Theme/web/css/source/_module.less
-    .page-footer{
-        display:none;
-    }
-}
-
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-    .page-wrapper {
-        .page-footer {
-            display: block;
-            .mi-mixin(#000,#210806)
+    .page-main {
+        .title {
+            color:deeppink;
         }
     }
 }
 
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-main {
+        .title {
+            color:dodgerblue;
+        }
+    }
+}
 
 
 
