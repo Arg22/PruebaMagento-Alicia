@@ -10,23 +10,32 @@ $exams = $block->getExams();
 
 ?>
 
-<h2 class="title">Exams</h2>
-<?php foreach ($exams as $item) {?>
-    <ul>
-        <li>First name: <?= $item->getFirstname() ?></li>
-        <li>Last name: <?= $item->getLastname() ?></li>
+<h2 class="title"><?= __('Exams') ?></h2>
 
-        <?php if($item->getMark() < 5){
-            $class="exam-fail";
-        }else{
-            $class="exam-pass";
-        } ?>
-        <li class="<?=$class?>">Mark: <?=$item->getMark()?></li>
+<button id="open_details" ><?= __('Show/Hide data') ?></button>
 
+<div id="details">
 
-    </ul>
-<?php } ?>
+    <?php foreach ($exams as $item) {?>
+        <ul>
+            <li><?= __('First name') ?>: <?= $item->getFirstname() ?></li>
+            <li><?= __('Last name') ?>: <?= $item->getLastname() ?></li>
 
+            <?php if($item->getMark() < 5){
+                $class="exam-fail";
+            }else{
+                $class="exam-pass";
+            } ?>
+            <li class="<?=$class?>"><?= __('Mark') ?>: <?=$item->getMark()?></li>
+        </ul>
+    <?php } ?>
+
+</div>
 <p><?= __('Total number of %1 students', [sizeof($exams)]) ?></p>
 <p><?= __('The average mark: %1', [$block->getAverageMark()]) ?></p>
 
+<script>
+    require(['jquery', 'myscript'], function($, myscript) {
+        myscript('#open_details','#details');
+    });
+</script>

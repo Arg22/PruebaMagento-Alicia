@@ -37,9 +37,7 @@ class MarkPlugin
     )
     {
         if ($subject->getData('mark') < 5.0) {
-            $subject->setMark(4.9);
-            $result = $subject->getData('mark');
-
+            return 4.9;
         }
         return $result;
     }
