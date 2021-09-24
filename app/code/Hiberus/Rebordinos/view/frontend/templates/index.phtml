@@ -16,6 +16,7 @@ $topMarks=$block->getMaxMarks();
 <h2 class="title"><?= __('Exams') ?></h2>
 
 <button id="open_details" ><?= __('Show/Hide data') ?></button>
+<button id="open_max" ><?= __('Top Mark') ?></button>
 
 <div id="details">
 
@@ -28,8 +29,6 @@ $topMarks=$block->getMaxMarks();
                 <?php }else{?>
             <ul>
         <?php   } ?>
-
-
 
             <li><?= __('First name') ?>: <?= $item->getFirstname() ?></li>
             <li><?= __('Last name') ?>: <?= $item->getLastname() ?></li>
@@ -52,4 +51,23 @@ $topMarks=$block->getMaxMarks();
     require(['jquery', 'myscript'], function($, myscript) {
         myscript('#open_details','#details');
     });
+
+
+</script>
+
+<script>
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/alert'
+        ], function($, alert) {
+            $('#open_max').on('click', function(event){
+                alert({
+                    title: 'La mejor nota',
+                    content: $('<div>La mejor nota de todas es un: <?= $topMarks[0] ?></div>'),
+                    modalClass: 'alert',
+
+                })
+            })
+        }
+    );
 </script>
