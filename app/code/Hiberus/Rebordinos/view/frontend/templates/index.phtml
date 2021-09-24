@@ -7,7 +7,9 @@
 use Hiberus\Rebordinos\Block\Index;
 
 $exams = $block->getExams();
-
+$passnote= $block->getPassNote();
+$size= $block->getSize();
+$i=0;
 ?>
 
 <h2 class="title"><?= __('Exams') ?></h2>
@@ -16,22 +18,25 @@ $exams = $block->getExams();
 
 <div id="details">
 
-    <?php foreach ($exams as $item) {?>
+
+    <?php foreach ($exams as $item) {
+        if ($i++ == $size) break;?>
         <ul>
             <li><?= __('First name') ?>: <?= $item->getFirstname() ?></li>
             <li><?= __('Last name') ?>: <?= $item->getLastname() ?></li>
 
-            <?php if($item->getMark() < 5){
+            <?php if($item->getMark() < $passnote){
                 $class="exam-fail";
             }else{
                 $class="exam-pass";
             } ?>
             <li class="<?=$class?>"><?= __('Mark') ?>: <?=$item->getMark()?></li>
         </ul>
+
     <?php } ?>
 
 </div>
-<p><?= __('Total number of %1 students', [sizeof($exams)]) ?></p>
+<p><?= __('Total number of %1 students', [$size]) ?></p>
 <p><?= __('The average mark: %1', [$block->getAverageMark()]) ?></p>
 
 <script>
