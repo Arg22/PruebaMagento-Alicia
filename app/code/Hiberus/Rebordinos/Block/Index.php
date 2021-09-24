@@ -13,11 +13,29 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 class Index extends \Magento\Framework\View\Element\Template
 {
 
+    /**
+     * @var \Magento\Framework\Registry
+     */
     protected $registry;
+    /**
+     * @var Exam
+     */
     protected $exam;
+    /**
+     * @var ExamRepositoryInterface
+     */
     protected $examRepository;
+    /**
+     * @var ExamInterfaceFactory
+     */
     protected $examInterfaceFactory;
+    /**
+     * @var \Hiberus\Rebordinos\Model\ResourceModel\Exam
+     */
     protected $examResource;
+    /**
+     * @var ScopeConfigInterface
+     */
     protected ScopeConfigInterface $scopeConfig;
 
     /**
@@ -57,6 +75,9 @@ class Index extends \Magento\Framework\View\Element\Template
     }
 
 
+    /**
+     * @return float|int
+     */
     public function getAverageMark(){
         $exams = $this->getExams();
         $marks=[];
@@ -66,30 +87,31 @@ class Index extends \Magento\Framework\View\Element\Template
         return array_sum($marks)/count($exams);
     }
 
-    public function getMaxMarks(){
-        $total=$this->getExams();
+    /**
+     * @return array
+     */
+    public function getMaxMarks()
+    {
+        $exams = $this->getExams();
         $marks=[];
-        $maxMarks=[];
-        $notaMax=0;
-        foreach ($total as $item){
+        foreach ($exams as $item){
             $marks[]=$item->getMark();
         }
-        $max=max($marks);
-        foreach ($marks as $mark){
-            $nota=$mark;
-            if($nota<=$max && count($maxMarks)<3){
-                $notaMax=$nota;
-                $maxMarks[]=$notaMax;
-            }
-        }
-        return $maxMarks;
+        rsort($marks);
+        return array_slice($marks,0,3);
     }
 
+    /**
+     * @return int|mixed
+     */
     public function getPassNote(){
         $data= $this->scopeConfig->getValue( 'hiberus_nombre/general/notaMinima', ScopeInterface::SCOPE_STORE);
         return  $data?:5;
     }
 
+    /**
+     * @return int|mixed|void
+     */
     public function getSize(){
         $data= $this->scopeConfig->getValue( 'hiberus_nombre/general/cantidad', ScopeInterface::SCOPE_STORE);
         $exams = $this->getExams();

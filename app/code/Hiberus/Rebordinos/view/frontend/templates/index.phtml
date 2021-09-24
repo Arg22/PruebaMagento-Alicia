@@ -10,6 +10,7 @@ $exams = $block->getExams();
 $passnote= $block->getPassNote();
 $size= $block->getSize();
 $i=0;
+$topMarks=$block->getMaxMarks();
 ?>
 
 <h2 class="title"><?= __('Exams') ?></h2>
@@ -21,7 +22,15 @@ $i=0;
 
     <?php foreach ($exams as $item) {
         if ($i++ == $size) break;?>
-        <ul>
+
+        <?php if(in_array($item->getMark(),$topMarks) ){?>
+            <ul class="best">
+                <?php }else{?>
+            <ul>
+        <?php   } ?>
+
+
+
             <li><?= __('First name') ?>: <?= $item->getFirstname() ?></li>
             <li><?= __('Last name') ?>: <?= $item->getLastname() ?></li>
 
