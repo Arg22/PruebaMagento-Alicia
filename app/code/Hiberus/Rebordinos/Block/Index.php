@@ -117,4 +117,16 @@ class Index extends \Magento\Framework\View\Element\Template
         $exams = $this->getExams();
         return  $data?:count($exams);
     }
+
+
+    /**
+     *Logger method
+     */
+    public function writeLog(){
+        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/mylogger.log');
+        $logger = new \Zend\Log\Logger();
+        $logger->addWriter($writer);
+        $logger->info('Se van a mostrar '.$this->getSize().
+            ' alumnos y la nota media de todos es '.$this->getAverageMark());
+    }
 }

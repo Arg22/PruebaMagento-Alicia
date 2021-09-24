@@ -6,11 +6,15 @@
 
 use Hiberus\Rebordinos\Block\Index;
 
+$i=0;
+
 $exams = $block->getExams();
+
 $passnote= $block->getPassNote();
 $size= $block->getSize();
-$i=0;
 $topMarks=$block->getMaxMarks();
+
+$block->writeLog();
 ?>
 
 <h2 class="title"><?= __('Exams') ?></h2>
