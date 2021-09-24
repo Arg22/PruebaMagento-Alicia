@@ -6,13 +6,19 @@
           <label>Hiberus</label>
         </tab>
         <section id="hiberus_nombre" showInDefault="1"  showInStore="1" showInWebsite="1" sortOrder="10">
-            <label>Hiberus Nombre</label>
+            <label>Panel Rebordinos</label>
             <tab>hiberus</tab>
-            <resource>Hiberus_Curso::config</resource>
+            <resource>Hiberus_Rebordinos::config</resource>
             <group id="general" showInDefault="1" sortOrder="10">
                 <label>General</label>
-                <field id="nombre_general" type="text" sortOrder="10" showInDefault="1">
-                    <label>Nombre General</label>
+                <field id="cantidad" type="text" sortOrder="10" showInDefault="1">
+                    <label>Cantidad de elementos a mostrar:</label>
+                    <validate>integer</validate>
+                </field>
+
+                <field id="notaMinima" type="text" sortOrder="10" showInDefault="1">
+                    <label>Nota minima para aprobar: </label>
+                    <validate>validate-number</validate>
                 </field>
             </group>
         </section>

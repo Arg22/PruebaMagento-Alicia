@@ -1,6 +1,5 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
-    <!--  TODO borrar  -->
-
+    <!--  Cargamos el tema del administrador  -->
     <type name="Magento\Theme\Model\View\Design">
         <arguments>
             <argument name="themes" xsi:type="array">
@@ -9,7 +8,7 @@
             </argument>
         </arguments>
     </type>
-    <!--  hastaqui  -->
+
     <!--  Relacion de la interfaz con el modeloy la interfaz del repositorio con la el repositorio  -->
     <preference for="Hiberus\Rebordinos\Api\Data\ExamInterface" type="Hiberus\Rebordinos\Model\Exam"/>
     <preference for="Hiberus\Rebordinos\Api\ExamRepositoryInterface" type="Hiberus\Rebordinos\Model\ExamRepository"/>
